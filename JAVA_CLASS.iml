@@ -16,5 +16,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="dotenv-java-3.0.0" level="project" />
   </component>
 </module>

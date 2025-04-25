@@ -6,14 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class loginPage {
     public static void main(String[] args) {
         try {
+            Dotenv dotenv = Dotenv.load();
+            String username = dotenv.get("MYSQL_USERNAME");  // Get username from .env
+            String passwd = dotenv.get("MYSQL_PASSWORD");   // Get password from .env
             // Load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Establish the connection to the database
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "harshu@123");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", username, passwd);
 
             // Display menu options
             System.out.println("Enter your choice:");
